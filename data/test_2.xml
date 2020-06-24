@@ -19,5 +19,6 @@
                 </ced>
             </paReq>
         </pa>
+        <dataJson>{"x":"a"}</dataJson>
     </soapenv:Body>
 </soapenv:Envelope>
