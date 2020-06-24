@@ -1,6 +1,6 @@
 {
   "name": "json-xml-json",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A Saxophone and fast-json-parse based XML2JSON parser and transformer",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
