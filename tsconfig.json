@@ -7,6 +7,6 @@
     "strict": false,
     "allowJs": true
   },
-  "include": ["src", "src/index.test.ts"],
+  "include": ["src", "src/generic_parser.test.ts"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
