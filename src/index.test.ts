@@ -43,7 +43,6 @@ test('Parse a SOAP XML with nested elements', async () => {
   soapParser.parse();
   const response = await pResponse;
   expect(response).toBeDefined();
-  console.log(response);
   expect(response.refId).toBe('cliRefId');
   expect(response.ids).toBeDefined();
   expect(response.ids.length).toBe(2);
