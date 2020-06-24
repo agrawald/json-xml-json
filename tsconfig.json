@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": false,
+    "allowJs": true
+  },
+  "include": ["src", "src/index.test.ts"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

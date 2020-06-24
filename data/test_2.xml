@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <activity>
+            <activityDetails>
+                <activityId>actID</activityId>
+            </activityDetails>
+        </activity>
+    </soapenv:Header>
+    <soapenv:Body>
+        <pa>
+            <paReq>
+                <!--Optional:-->
+                <refId>cliRefId</refId>
+                <ced>
+                    <id>crn-1</id>
+                </ced>
+                <ced>
+                    <id>crn-2</id>
+                </ced>
+            </paReq>
+        </pa>
+    </soapenv:Body>
+</soapenv:Envelope>

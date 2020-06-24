@@ -1,0 +1,50 @@
+{
+  "name": "json-xml-json",
+  "version": "1.0.2",
+  "description": "A Saxophone and fast-json-parse based XML2JSON parser and transformer",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrawald/json-xml-json.git"
+  },
+  "keywords": [
+    "XML2JSON"
+  ],
+  "author": "dheeraj.agrawal",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.0",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.5"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "fast-json-parse": "^1.0.3",
+    "saxophone-ts": "^0.6.4"
+  },
+  "bugs": {
+    "url": "https://github.com/agrawald/dhs-xml2json/issues"
+  },
+  "homepage": "https://github.com/agrawald/dhs-xml2json#readme",
+  "directories": {
+    "lib": "lib"
+  }
+}
