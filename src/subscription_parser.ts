@@ -6,16 +6,21 @@ export class SubscriptionParser<T> extends GenericParser<T> {
     super(xml);
   }
 
+  private _cleanTagName(tagName: string): string {
+    return tagName.split(':').reverse()[0];
+  }
+
   subscribe(request: SubcriptionReq): Promise<T | any> {
     return new Promise((resolve, reject) => {
       const response = {};
       let found: Subscription;
       let currentXPath: string;
       this.parser.on('tagOpen', (pTag) => {
+        const tagName = this._cleanTagName(pTag.name);
         if (currentXPath) {
-          currentXPath = currentXPath + '.' + pTag.name;
+          currentXPath = currentXPath + '.' + tagName;
         } else {
-          currentXPath = pTag.name;
+          currentXPath = tagName;
         }
 
         for (const sub of request) {

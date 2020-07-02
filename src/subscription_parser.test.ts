@@ -7,10 +7,10 @@ test('Parse a SOAP XML with embedded JSON', async () => {
   const xml = fs.readFileSync('./data/test_2.xml');
   const soapParser = new SubscriptionParser<any>(xml);
   const subscriptionReq = [
-    { tag: 'soapenv:Envelope.soapenv:Body.pa.paReq.refId', name: 'refId' },
-    { tag: 'soapenv:Envelope.soapenv:Body.pa.paReq.ced.id', name: 'ids' },
-    { tag: 'soapenv:Envelope.soapenv:Header.activity.activityDetails.activityId', name: 'actId' },
-    { tag: 'soapenv:Envelope.soapenv:Body.dataJson', name: 'json', converter: dataJsonConverter },
+    { tag: 'Envelope.Body.pa.paReq.refId', name: 'refId' },
+    { tag: 'Envelope.Body.pa.paReq.ced.id', name: 'ids' },
+    { tag: 'Envelope.Header.activity.activityDetails.activityId', name: 'actId' },
+    { tag: 'Envelope.Body.dataJson', name: 'json', converter: dataJsonConverter },
   ];
   const response = await soapParser.subscribe(subscriptionReq);
   expect(response).toBeDefined();
