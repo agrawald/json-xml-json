@@ -4,6 +4,7 @@
   "description": "A Saxophone and fast-json-parse based XML2JSON parser and transformer",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -11,6 +12,7 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
+    "pretest": "tsc",
     "test": "jest --config jestconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json"
