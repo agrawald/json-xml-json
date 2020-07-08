@@ -7,6 +7,7 @@ export interface Property {
   path: string;
   isAttribute?: boolean;
   toObject?: Converter<any>;
+  properties?: Property[];
 }
 
 export default interface Subscription {
