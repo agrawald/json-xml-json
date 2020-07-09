@@ -8,4 +8,4 @@ export type Subscription = {
   converter?: Converter<string | object>;
 };
 
-export type SubcriptionReq = Subscription[];
+export type SubscriptionReq = Subscription[];

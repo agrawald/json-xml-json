@@ -18,20 +18,20 @@ Please refer to [test cases](https://github.com/agrawald/json-xml-json/blob/mast
 
 ```typescript
 const xml = fs.readFileSync('./data/test_2.xml');
-const soapParser = new SubscriptionParser<any>(xml);
+const soapParser = new SubscriptionParser<any>();
 const subscriptionReq = [
   { tag: 'soapenv:Envelope.soapenv:Body.pa.paReq.refId', name: 'refId' },
   { tag: 'soapenv:Envelope.soapenv:Body.pa.paReq.ced.id', name: 'ids' },
   { tag: 'soapenv:Envelope.soapenv:Header.activity.activityDetails.activityId', name: 'actId' },
   { tag: 'soapenv:Envelope.soapenv:Body.dataJson', name: 'json', converter: dataJsonConverter },
 ];
-const response = await soapParser.subscribe(subscriptionReq);
+const response = await soapParser.subscribe(subscriptionReq).parse(xml);
 ```
 
 ### parsing full XML
 
 ```typescript
 const xml = fs.readFileSync('./data/test_1.xml');
-const soapParser = new GenericParser<any>(xml);
-const response = await soapParser.parse();
+const soapParser = new GenericParser<any>();
+const response = await soapParser.parse(xml);
 ```

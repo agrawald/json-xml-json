@@ -5,14 +5,14 @@ import { SubscriptionParser } from './subscription_parser';
 const parse = require('fast-json-parse');
 test('Parse a SOAP XML with embedded JSON', async () => {
   const xml = fs.readFileSync('./data/test_2.xml');
-  const soapParser = new SubscriptionParser<any>(xml);
+  const soapParser = new SubscriptionParser<any>();
   const subscriptionReq = [
     { tag: 'Envelope.Body.pa.paReq.refId', name: 'refId' },
     { tag: 'Envelope.Body.pa.paReq.ced.id', name: 'ids' },
     { tag: 'Envelope.Header.activity.activityDetails.activityId', name: 'actId' },
     { tag: 'Envelope.Body.dataJson', name: 'json', converter: dataJsonConverter },
   ];
-  const response = await soapParser.subscribe(subscriptionReq);
+  const response = await soapParser.subscribe(subscriptionReq).parse(xml);
   expect(response).toBeDefined();
   expect(response.refId).toBe('cliRefId');
   expect(response.ids).toBeDefined();
