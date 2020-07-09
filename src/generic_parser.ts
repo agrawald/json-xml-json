@@ -21,22 +21,22 @@ class Tag {
 
   toObject() {
     const resp = {};
-    if (this.text) {
-      resp[this.name] = this.text;
-    }
 
-    if (this.attrs) {
-      resp['attrs'] = this.attrs;
+    if (this.text) {
+      return this.text;
     }
 
     if (this.next) {
-      if (this.next.length > 0) {
-        resp[this.name] = [];
-        for (let i = 0; i < this.next.length; i++) {
-          resp[this.name][i] = this.next[i].toObject();
+      for (const next of this.next) {
+        // if already exists
+        if (resp[next.name]) {
+          if (!(resp[next.name] instanceof Array)) {
+            resp[next.name] = [resp[next.name]];
+          }
+          resp[next.name].push(next.toObject());
+        } else {
+          resp[next.name] = next.toObject();
         }
-      } else if (this.next[0].name && this.next[0].name.length > 0) {
-        resp[this.name] = this.next[0].toObject();
       }
     }
     return resp;
