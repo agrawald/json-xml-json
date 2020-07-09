@@ -15,7 +15,7 @@ class Tag {
   }
 
   update(tag: { name: string; isSelfClosing: boolean; attrs: any }) {
-    this.name = tag.name;
+    this.name = tag.name.split(':').reverse()[0];
     if (tag.attrs) this.attrs = parseAttrs(tag.attrs);
   }
 
