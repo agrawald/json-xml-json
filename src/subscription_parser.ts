@@ -17,12 +17,12 @@ export class SubscriptionParser<T> {
     this.parser.on('cdata', this.onTextOrCdata.bind(this));
   }
 
-  private _cleanTagName(tagName: string): string {
+  private cleanTagName(tagName: string): string {
     return tagName.split(':').reverse()[0];
   }
 
   private onTagOpen(tag: TagOpenNode): void {
-    const tagName = this._cleanTagName(tag.name);
+    const tagName = this.cleanTagName(tag.name);
     if (this.currentXPath) {
       this.currentXPath = this.currentXPath + '.' + tagName;
     } else {

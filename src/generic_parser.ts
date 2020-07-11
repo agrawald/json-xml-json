@@ -44,7 +44,7 @@ class Tag {
 }
 
 export class GenericParser<T> {
-  protected parser: Saxophone;
+  private parser: Saxophone;
   private currentTag: Tag;
 
   constructor() {
