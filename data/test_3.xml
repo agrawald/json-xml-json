@@ -1,0 +1,97 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Header/>
+<soap:Body>
+<operation xmlns="http://cpo/v1">
+    <data>
+        <![CDATA[{
+                "businessTransactionType": "abc",
+                "businessTransactionId": "123",
+                "primaryParticipantCrn": "1234567K",
+                "primaryParticipantActivityId": "123",
+                "participants": [
+                    {
+                        "participantCrn": "111111111",
+                        "messageSequence": "",
+                        "tagRoleList": "AMG,EMG,ERP,FTB,NSS,PAT,PEN,UAS,",
+                        "activity": {
+                            "keys": {
+                                "KEY.PERSON.ID": "111111111",
+                                "AY.ACTVY.ID": "666"
+                            },
+                            "data": {
+                                "AC.ACTIVITY.CODE": "EAN",
+                                "AC.ASSESS.ASSISTANCE.CODE": "",
+                                "AC.SOURCE.RECEIPT.DATE": "20200301",
+                                "AY.ACTVY.CLASS.CODE": "PEN",
+                                "AY.DERIVED.RECEIPT.DATE": "20200301",
+                                "TK": [
+                                    {
+                                        "TK.TASK.CODE": "EAN"
+                                    }
+                                ],
+                                "KWD": [
+                                    {
+                                        "KWD.TEXT": "RKSPVL"
+                                    }
+                                ],
+                                "EV": [
+                                    {
+                                        "EV.EVNT.LOG.CODE": "EAIDSMS",
+                                        "EV.EVNT.LOG.PARM.LIST": "_",
+                                        "EV.EVNT.LOG.TASK.CODE": "EAN"
+                                    }
+                                ],
+                                "AMEW": [
+                                    {
+                                        "AMEW.MSG.TEXT": "W021MC - Concession entitlements have been changed as part of this activity."
+                                    }
+                                ]
+                            }
+                        },
+                        "records": {
+                            "ATO.FTB.CLM.CHILD.DTLS": [
+                                {
+                                    "keys": {
+                                        "PERSON.ID": "111111111",
+                                        "CHILD.PERSON.ID": "2222222",
+                                        "FIN.YR": "2020",
+                                        "RECORD.TYPE": "ATO.FTB.CLM.CHILD.DTLS"
+                                    },
+                                    "data": {
+                                        "FYCM": [
+                                            {
+                                                "FYCM.AMR": "666P",
+                                                "FYCM.EXEMPT.IND": "Y",
+                                                "FYCM.MAINT.DOA": "20200301",
+                                                "FYCM.MAINT.ENT.DATE": "20200301"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "CIRC.RCD.MISC": [
+                                {
+                                    "keys": {
+                                        "PERSON.ID": "111111111",
+                                        "RECORD.TYPE": "CIRC.RCD.MISC"
+                                    },
+                                    "data": {
+                                        "RJAB": [
+                                            {
+                                                "RJAB.AMR": "666P",
+                                                "RJAB.DOV": "20200301",
+                                                "RJAB.EXEMPT.ACCOM.BOND.AMT": "100"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }]]>
+
+    </data>
+</operation>
+</soap:Body>
+</soap:Envelope>

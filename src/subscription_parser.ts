@@ -1,6 +1,6 @@
 import { Saxophone } from 'saxophone-ts';
 import { Subscription, SubscriptionReq } from './interfaces';
-import { TagOpenNode, TagCloseNode, TextNode } from 'saxophone-ts/dist/types/src/static/nodes';
+import { TagOpenNode, TagCloseNode, TextNode, CDATANode } from 'saxophone-ts/dist/types/src/static/nodes';
 
 export class SubscriptionParser<T> {
   private parser: Saxophone;
@@ -22,6 +22,9 @@ export class SubscriptionParser<T> {
   }
 
   private onTagOpen(tag: TagOpenNode): void {
+    if(tag.isSelfClosing) {
+      return;
+    }
     const tagName = this.cleanTagName(tag.name);
     if (this.currentXPath) {
       this.currentXPath = this.currentXPath + '.' + tagName;
@@ -42,8 +45,8 @@ export class SubscriptionParser<T> {
     this.currentXPath = this.currentXPath.substr(0, this.currentXPath.lastIndexOf('.'));
   }
 
-  private onTextOrCdata(text: TextNode): void {
-    if (this.found) {
+  private onTextOrCdata(text: TextNode | CDATANode): void {
+    if (this.found && text.contents && text.contents.trim().length > 0) {
       const key = this.found.name;
       const value = this.found.converter ? this.found.converter.convert(text.contents.trim()) : text.contents.trim();
       // if element already in the response convert to array

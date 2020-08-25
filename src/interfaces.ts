@@ -5,6 +5,7 @@ export interface Converter<T> {
 export type Subscription = {
   tag: string;
   name?: string;
+  cdata?: boolean;
   converter?: Converter<string | object>;
 };
 

@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import { GenericParser } from './generic_parser';
 import { Converter } from './interfaces';
 import { SubscriptionParser } from './subscription_parser';
 const parse = require('fast-json-parse');
+
 test('Parse a SOAP XML with embedded JSON', async () => {
   const xml = fs.readFileSync('./data/test_2.xml');
   const soapParser = new SubscriptionParser<any>();
@@ -22,6 +22,18 @@ test('Parse a SOAP XML with embedded JSON', async () => {
   expect(response.actId).toBe('actID');
   expect(response.json).toBeDefined();
   expect(response.json.x).toBe('a');
+});
+
+test('Parse a SOAP XML with embedded JSON in CDATA', async () => {
+  const xml = fs.readFileSync('./data/test_3.xml');
+  const soapParser = new SubscriptionParser<any>();
+  const subscriptionReq = [
+    { tag: 'Envelope.Body.operation.data', name: 'data', converter: dataJsonConverter },
+  ];
+  const response = await soapParser.subscribe(subscriptionReq).parse(xml);
+  expect(response).toBeDefined();
+  expect(response.data).toBeDefined();
+  expect(response.data.businessTransactionType).toBe('abc');
 });
 
 const dataJsonConverter = new (class DataJsonConverter implements Converter<any> {
