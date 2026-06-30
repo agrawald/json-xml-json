@@ -27,9 +27,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "fast-json-parse": "^1.0.3",
-    "jest": "^26.0.1",
+    "jest": "^30.4.2",
     "prettier": "^2.0.5",
-    "ts-jest": "^26.1.0",
+    "ts-jest": "^29.4.11",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.9.5"
